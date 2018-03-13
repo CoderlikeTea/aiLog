@@ -1,2 +1,2 @@
-# aiLog
+# aiLog操作手册
 
