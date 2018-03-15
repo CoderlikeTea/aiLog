@@ -3,7 +3,7 @@
 ## 客户端配置
  * 项目部署AILog-1.0-SNAPSHOT.jar<br>
  * 配置log4j.properties
- 在log4j.properties新增日志输出地
+    在项目的log4j.properties文件中添加以下配置
  ```
  log4j.rootLogger=debug,server
  ```
