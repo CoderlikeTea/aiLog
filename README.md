@@ -26,7 +26,7 @@ log4j.appender.server.ExtendPara=com.ai.omframe.util.ExtendPara
  log4j.rootLogger=debug,server
 ```
 <br>
- * 自定义配置 <br>
+* 自定义配置 <br>
 满足参数可扩展，个中心可自定义参数传到服务端
 
 ## 服务端(以个人订单为例)
