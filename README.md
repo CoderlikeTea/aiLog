@@ -8,4 +8,6 @@ log4j.appender.server.ReconnectionDelay=10000
 log4j.appender.server.application=yuqh3_exe
 log4j.appender.server.ExtendPara=com.ai.omframe.util.ExtendPara
 
+## 服务端配置
+
 
