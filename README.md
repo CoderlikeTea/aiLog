@@ -1,15 +1,17 @@
 # aiLog操作手册
 
-> 这是一段引用    //在`>`后面有 1 个空格
+> 客户端配置
 > 
->     这是引用的代码块形式    //在`>`后面有 5 个空格
+> 
 >     
-> 代码例子：
+> log4j.properties配置：
 >   
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+log4j.appender.server=com.ai.omframe.util.AISocketAppender
+log4j.appender.server.Port=4719
+log4j.appender.server.RemoteHost=20.26.26.27
+log4j.appender.server.ReconnectionDelay=10000
+log4j.appender.server.application=personal_csf
+log4j.appender.server.ExtendPara=com.ai.omframe.util.ExtendPara
 
 > 一级引用
 > > 二级引用
