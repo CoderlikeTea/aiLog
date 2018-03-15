@@ -5,7 +5,10 @@
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+        aa
+        bb
+        cc
+    }
 
     
 ## 服务端配置
