@@ -3,6 +3,7 @@
 ## 客户端配置
  * 项目部署AILog-1.0-SNAPSHOT.jar<br>
  * 配置log4j.properties
+ 在log4j.properties新增日志输出地
  ```
  log4j.rootLogger=debug,server
  ```
@@ -15,6 +16,7 @@ log4j.appender.server.application=yuqh3_exe
 log4j.appender.server.ExtendPara=com.ai.omframe.util.ExtendPara
 ```
 <br>
+* 自定义配置
 
 ## 服务端配置
 
