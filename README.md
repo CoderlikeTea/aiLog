@@ -26,13 +26,15 @@ log4j.appender.server.ExtendPara=com.ai.omframe.util.ExtendPara
  log4j.rootLogger=debug,server
 ```
 <br>
-* 自定义配置 <br>
+ * 自定义配置 <br>
 满足参数可扩展，个中心可自定义参数传到服务端
 
-## 服务端
-*登陆`20.26.27.27`(personal/123456)
+## 服务端(以个人订单为例)
+ * 登陆`20.26.27.27`(personal/123456)<br>
+  
+   执行启动脚本: sh bin/start_personal_sh 
 
-*启动
+ * 启动
 
 
 
