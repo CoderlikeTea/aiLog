@@ -25,10 +25,12 @@ log4j.appender.server.ExtendPara=com.ai.omframe.util.ExtendPara
 #配置输出的地方（这个名字必须与新增的Appender名称一致）
  log4j.rootLogger=debug,server
 ```
+<div align="center"> <img src="jpg//pg1.png"/> </div><br>
+
 
  * 自定义配置 <br>
 满足参数可扩展，中心可自定义参数并将其传到服务端
-! [] (https://github.com/CoderlikeTea/aiLog/blob/master/jpg/pg1.png)
+
 
 
 * ADCloud编译发布
