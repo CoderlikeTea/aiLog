@@ -28,6 +28,7 @@ log4j.appender.server.ExtendPara=com.ai.omframe.util.ExtendPara
 
  * 自定义配置 <br>
 满足参数可扩展，中心可自定义参数并将其传到服务端
+! [https://github.com/CoderlikeTea/aiLog/blob/master/jpg/pg1.png] 
 
 
 * ADCloud编译发布
