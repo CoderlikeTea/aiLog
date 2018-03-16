@@ -11,30 +11,33 @@
  ```
  ##使用soctet连接发送日志信息
 log4j.appender.server=com.ai.omframe.util.AISocketAppender
-##服务端对应的端口
+##服务端对应的端口（原则上 中心与端口一一映射）
 log4j.appender.server.Port=4719
 ##服务端主机IP
 log4j.appender.server.RemoteHost=20.26.26.27
 log4j.appender.server.ReconnectionDelay=10000
-##中心名
+##配置对应的中心名
 log4j.appender.server.application=personal_exe
 ##属性扩展类
 log4j.appender.server.ExtendPara=com.ai.omframe.util.ExtendPara
 ```
 ```
-#
+#配置输出的地方（这个名字必须与新增的Appender名称一致）
  log4j.rootLogger=debug,server
 ```
 
  * 自定义配置 <br>
-满足参数可扩展，个中心可自定义参数传到服务端
+满足参数可扩展，中心可自定义参数并将其传到服务端
+
+
+* ADCloud编译发布
 
 ## 服务端(以个人订单为例)
  * 登陆`20.26.27.27`(personal/123456)<br>
   
-   执行启动脚本: sh bin/start_personal_sh 
+   执行启动脚本: sh bin/start_personal_sh { port}
 
- * 启动
+
 
 
 
