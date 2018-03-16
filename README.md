@@ -10,22 +10,21 @@
    在项目的log4j.properties文件中添加以下配置
  ```
  ##使用soctet连接发送日志信息
-log4j.appender.server=com.ai.omframe.util.AISocketAppender
+log4j.appender.server=com.ai.aiappender.AISocketAppender
 ##服务端对应的端口（原则上 中心与端口一一映射）
 log4j.appender.server.Port=4719
 ##服务端主机IP
 log4j.appender.server.RemoteHost=20.26.26.27
 log4j.appender.server.ReconnectionDelay=10000
-##配置对应的中心名
-log4j.appender.server.application=personal_exe
+##配置中心应用名
+log4j.appender.server.application=personal-csf
 ##属性扩展类
-log4j.appender.server.ExtendPara=com.ai.omframe.util.ExtendPara
+log4j.appender.server.ExtendPara=com.ai.extpara.ExtendPara
 ```
 ```
 #配置输出的地方（这个名字必须与新增的Appender名称一致）
  log4j.rootLogger=debug,server
 ```
-<div align="center"> <img src="jpg//pg1.png"/> </div><br>
 
 
  * 自定义配置 <br>
@@ -39,7 +38,7 @@ log4j.appender.server.ExtendPara=com.ai.omframe.util.ExtendPara
  * 登陆`20.26.27.27`(personal/123456)<br>
   cd bin
  * 脚本简介
- <div align="center"> <img src="jpg//pg3.jpg"/> </div><br> 
+
  
 
 
