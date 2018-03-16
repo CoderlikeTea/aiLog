@@ -37,8 +37,8 @@ log4j.appender.server.ExtendPara=com.ai.omframe.util.ExtendPara
 
 ## 服务端(以个人订单为例)
  * 登陆`20.26.27.27`(personal/123456)<br>
-  
-   执行启动脚本: sh bin/start_personal_sh { port}
+ <div align="center"> <img src="jpg//pg3.jpg"/> </div><br> 
+ 
 
 
 
