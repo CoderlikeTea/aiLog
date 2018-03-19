@@ -37,8 +37,10 @@ log4j.appender.server.ExtendPara=com.ai.extpara.ExtendPara
 public class DemoExtendParaSVImpl implements IExtendParaSV {
     public String  author;
     
-    //get方法命名格式严格按照get+filed的格式命名
-    //且在方法中需将filed的首字母变成大写
+    /**
+     get方法命名格式严格按照get+filed的格式命名
+     且在方法中需将filed的首字母变成大写
+    */
     public String getAnother(){
         return this.author = "coder";
     }
