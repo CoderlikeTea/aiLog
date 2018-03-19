@@ -28,12 +28,12 @@ log4j.appender.server.ExtendPara=com.ai.extpara.ExtendPara
 
 
  * 自定义配置 <br>
-满足参数可扩展，中心可自定义参数并将其传到服务端
-客户端可以自定义属性扩充类
+满足参数可扩展，中心可自定义参数并将其传到服务端<br>
+
 1-实现com.ai.extpara.interfaces.IExtendParaSV接口，添加get{Field}方法
 例：
  
- ```
+```
 public class DemoExtendParaSVImpl implements IExtendParaSV {
     public String  author;
     
@@ -46,6 +46,8 @@ public class DemoExtendParaSVImpl implements IExtendParaSV {
     }
 }
 ```
+2-继承com.ai.extpara.impl.AppFrameExtendPara
+
 
 
 
