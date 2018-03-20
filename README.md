@@ -42,7 +42,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
 ## 自定义本中心属性
 ### 客户端改造
 * 实现类改造
-1. 重构法 
+1. 重构法 <br>
 实现com.ai.extpara.interfaces.IExtendParaSV接口，添加get{Field}方法
  
 ```
@@ -59,8 +59,8 @@ public class DemoExtendParaSVImpl implements IExtendParaSV {
     }
 }
 ```
-2. 追加法
- 继承com.ai.extpara.impl.AppFrameExtendPara
+2. 追加法<br>
+ 继承com.ai.extpara.impl.AppFrameExtendPara 添加get{Field}方法
 ```
 package com.ai.omframe.util;
 
