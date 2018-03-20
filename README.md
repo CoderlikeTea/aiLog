@@ -40,7 +40,8 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
 
 
 ## 自定义本中心属性
-### 客户端改造
+### 客户端改造(支持两种改造方式)
+其中重构法适用于不基于AppFrame的项目，追加法适用于基于AppFrame的项目。
 * 实现类改造
 1. 重构法 <br>
 实现com.ai.extpara.interfaces.IExtendParaSV接口，添加get{Field}方法
@@ -103,9 +104,121 @@ log4j.appender.server.ExtendPara=com.ai.omframe.util.DemoExtendParaSVImpl
 
 
 ### 服务端改造
-服务端修改对应本项目的logstash.conf
+根据客户端选择的改造方案的不同，服务端也有不同的修改方案
+找到本项目对应的logstath.conf
+
 ```
-修改完后执行服务端重启脚本
+filter {
+        mutate{
+                split => ["host",":"]
+                add_field => {
+                        "ip" => "%{[host][0]}"
+                }
+
+                add_field => {
+                        "prot" => "%{[host][1]"
+                }
+
+                remove_field => ["host"]
+
+                add_field => {
+                        "stack_trace" =>"%{stack_trace} "
+                }
+
+
+        }
+
+        date {
+                match => ["timestamp","UNIX_MS"]
+                target => "timestamp"
+        }
+
+        ruby {
+                code => "event['timestamp'] = LogStash::Timestamp.new(event['timestamp']+ 8*60*60)"
+        }
+}
+output {
+  if [stack_trace] != "%{stack_trace} " {
+       file {
+         path => "~/logs/%{application}-%{+YYYYMMdd}-%{processName}-%{ip}.log"
+         codec => plain {
+             format => "[%{timestamp}] [%{thread}] (%{opCode}:%{opId}) (%{file}) %{priority} %{class} - %{message}
+%{stack_trace}
+"
+             }
+         }
+   }else{
+      file {
+        path => "~/logs/%{application}-%{+YYYYMMdd}-%{processName}-%{ip}.log"
+        codec => plain {
+            format => "[%{timestamp}] [%{thread}] (%{opCode}:%{opId}) (%{file}) %{priority} %{class} - %{message}
+"
+            }
+        }
+    }
+
+}
+```
+重构法对应服务端改造：
+删除output.file.path 和 output.file.codec.plain.format对应的value值
+ 添加自定应配置
+ 以前面客户端改造使用的最加法为例：
+ 我要在日志打印出作者信息
+ 可以把对应的output改成即可
+ ```
+ output {
+  if [stack_trace] != "%{stack_trace} " {
+       file {
+         path => "~/logs/%{application}-%{+YYYYMMdd}-%{ip}.log"
+         codec => plain {
+             format => "[%{timestamp}] [%{thread}] (%{another}) (%{file}) %{priority} %{class} - %{message}
+%{stack_trace}
+"
+             }
+         }
+   }else{
+      file {
+        path => "~/logs/%{application}-%{+YYYYMMdd}-%{ip}.log"
+        codec => plain {
+            format => "[%{timestamp}] [%{thread}] (%{another}) (%{file}) %{priority} %{class} - %{message}
+"
+            }
+        }
+    }
+
+}
+ ```
+ 
+ 使用追加法对应的服务端的改造
+ 直接在原有的基础上添加就可以了
+ 比如我要使用追加法在日志中显示作者信息，把outPut修改成
+ ```
+ output {
+  if [stack_trace] != "%{stack_trace} " {
+       file {
+         path => "~/logs/%{application}-%{+YYYYMMdd}-%{processName}-%{ip}.log"
+         codec => plain {
+             format => "[%{timestamp}] [%{thread}] (%{opCode}:%{opId}) (%{another}) (%{file}) %{priority} %{class} - %{message}
+%{stack_trace}
+"
+             }
+         }
+   }else{
+      file {
+        path => "~/logs/%{application}-%{+YYYYMMdd}-%{processName}-%{ip}.log"
+        codec => plain {
+            format => "[%{timestamp}] [%{thread}] (%{opCode}:%{opId}) (%{another}) (%{file}) %{priority} %{class} - %{message}
+"
+            }
+        }
+    }
+
+}
+ ```
+ 
+
+最后我们重启一下服务，让配置生效。
+
 
 
 
