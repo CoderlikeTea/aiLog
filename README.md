@@ -79,8 +79,9 @@ public class DemoExtendPara extends  AppFrameExtendPara {
 * 配置自定义log4j.properties
 修改log4j.appender.server.ExtendPara标签的value
 
-##属性扩展类
+##属性扩展类<br>
 <font color=#00ffff >log4j.appender.server.ExtendPara=com.ai.omframe.util.DemoExtendParaSVImpl</font>
+<font color=#00ffff size=72>color=#00ffff</font>
 
 ```
 #配置输出的地方（这个名字必须与新增的Appender名称一致）
