@@ -6,8 +6,8 @@
 
 ## AILog的基本使用方法
 ### 客户端配置
- * 项目部署AILog-1.0-SNAPSHOT.jar<br>
- * 配置log4j.properties<br>
+ #### 项目部署AILog-1.0-SNAPSHOT.jar<br>
+ #### 配置log4j.properties<br>
    在项目的log4j.properties文件中添加以下配置
  ```
  ##使用soctet连接发送日志信息
@@ -29,9 +29,9 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
 * ADCloud编译发布
 
 ### 服务端(以个人订单为例)
- * 登陆`20.26.27.27`(personal/123456)<br>
+ #### 登陆`20.26.27.27`(personal/123456)<br>
   进入bin目录 执行start_personal_log.sh脚本 
- * 脚本简介<br>
+ #### 脚本简介<br>
 - sh start_personal_log.sh(服务端启动脚本)
 - sh stop_personal_log.sh(停止脚本)
 - sh  restart_personal_log.sh(服务端重启脚本)
@@ -39,7 +39,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
 ## 自定义AILog属性
 ### 客户端改造
 
-1-实现com.ai.extpara.interfaces.IExtendParaSV接口，添加get{Field}方法
+1. 实现com.ai.extpara.interfaces.IExtendParaSV接口，添加get{Field}方法
 例：
  
 ```
@@ -55,7 +55,7 @@ public class DemoExtendParaSVImpl implements IExtendParaSV {
     }
 }
 ```
-2-继承com.ai.extpara.impl.AppFrameExtendPara
+2. 继承com.ai.extpara.impl.AppFrameExtendPara
 ```
 package com.ai.omframe.util;
 
