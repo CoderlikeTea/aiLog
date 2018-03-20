@@ -4,7 +4,7 @@
 <br>
 为提高工作效率,测试人员提出希望在同一台主机上获取日志
 
-##AILog的基本使用方法
+## AILog的基本使用方法
 ### 客户端配置
  * 项目部署AILog-1.0-SNAPSHOT.jar<br>
  * 配置log4j.properties<br>
@@ -35,8 +35,8 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
 sh start.sh(服务端启动脚本)
 sh restart.sh(服务端重启脚本)
 
-##自定义AILog属性
-###客户端配置
+## 自定义AILog属性
+### 客户端改造
 
 1-实现com.ai.extpara.interfaces.IExtendParaSV接口，添加get{Field}方法
 例：
@@ -57,8 +57,9 @@ public class DemoExtendParaSVImpl implements IExtendParaSV {
 2-继承com.ai.extpara.impl.AppFrameExtendPara
 ```
 ```
-* 服务端改造
+### 服务端改造
 服务端修改对应本项目的logstash.conf
+```
 修改完后执行服务端重启脚本
 
 
