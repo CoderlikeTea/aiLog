@@ -30,9 +30,9 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
 
 ### 服务端(以个人订单为例)
  * 登陆`20.26.27.27`(personal/123456)<br>
-  cd bin
+  进入bin目录 执行start_personal_log.sh脚本 
  * 脚本简介<br>
-sh restart_personal_log.sh(服务端启动脚本)
+sh start_personal_log.sh(服务端启动脚本)
 sh stop_personal_log.sh(停止脚本)
 sh  restart_personal_log.sh(服务端重启脚本)
 
@@ -46,18 +46,33 @@ sh  restart_personal_log.sh(服务端重启脚本)
 public class DemoExtendParaSVImpl implements IExtendParaSV {
     public String  author;
     
- ? ?/**
-     get方法命名格式严格按照get+filed的格式命名
- ? ? 且在方法中需将filed的首字母变成大写
+    /**
+      get方法命名格式严格按照get+filed的格式命名
+      且在方法中需将filed的首字母变成大写
     */
- ? ?public String getAnother(){
+    public String getAnother(){
         return this.author = "coder";
     }
 }
 ```
 2-继承com.ai.extpara.impl.AppFrameExtendPara
 ```
+package com.ai.omframe.util;
+
+public class DemoExtendPara extends  AppFrameExtendPara {
+    public String another;
+
+    /**
+      get方法命名格式严格按照get+filed的格式命名
+      且在方法中需将filed的首字母变成大写
+     */
+    public String getAnother(){
+        return  this.another = "coder";
+    }
+
+}
 ```
+
 ### 服务端改造
 服务端修改对应本项目的logstash.conf
 ```
