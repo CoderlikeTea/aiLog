@@ -32,9 +32,9 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
  * 登陆`20.26.27.27`(personal/123456)<br>
   进入bin目录 执行start_personal_log.sh脚本 
  * 脚本简介<br>
-sh start_personal_log.sh(服务端启动脚本)
-sh stop_personal_log.sh(停止脚本)
-sh  restart_personal_log.sh(服务端重启脚本)
+- sh start_personal_log.sh(服务端启动脚本)
+- sh stop_personal_log.sh(停止脚本)
+- sh  restart_personal_log.sh(服务端重启脚本)
 
 ## 自定义AILog属性
 ### 客户端改造
