@@ -4,7 +4,6 @@
 <br>
 为提高工作效率,测试人员提出希望在同一台主机上获取日志
 
-## AILog的基本使用方法
 ### 客户端配置
  * 项目部署AILog-1.0-SNAPSHOT.jar<br>
  * 配置log4j.properties<br>
