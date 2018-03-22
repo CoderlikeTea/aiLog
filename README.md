@@ -45,10 +45,12 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
 -  start_personal_log.sh(服务端启动脚本)
 -  stop_personal_log.sh(停止脚本)
 -  restart_personal_log.sh(服务端重启脚本)
-
-  在完成客户端,服务端的配置后<br>
-  执行本中心的 start_personal_log.sh 脚本 <br>
-  就会在logs目录下看到日志文件了
+ 
+### 结果展示
+ 
+在完成客户端,服务端的配置后<br>
+执行本中心的 start_personal_log.sh 脚本 <br>
+就会在logs目录下看到日志文件了
 
 
 
