@@ -39,7 +39,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
    
    1-- 端口号须保证与客户端的配置的端口号保持一致<br>
    
-   2-- 端口号不可与其他中心的端口号一致
+  2-- 端口号不可与其他中心的端口号一致
 
  
   #### 脚本简介<br>
