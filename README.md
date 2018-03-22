@@ -37,9 +37,9 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
  * 在新建的本中心目录下新建logs目录（用以存放本中心日志）
  
  * 修改start_personal_log.sh中的启动参数(端口号，中心名称)<br>
- 
-    <font color=#0099ff size=12 face="黑体">注</font> 端口号须保证与客户端的配置的端口号保持一致<br>
-    <font color=#0099ff size=12 face="黑体">注</font> 端口号尽量与别的中心的端口号不一样
+   
+   1 端口号须保证与客户端的配置的端口号保持一致<br>
+   2 端口号尽量与别的中心的端口号不一样
 
  
  #### 脚本简介<br>
