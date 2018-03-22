@@ -36,9 +36,10 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
  
  * 在新建的本中心目录下新建logs目录（用以存放本中心日志）
  
- * 修改start_personal_log.sh中的启动参数(端口号，中心名称)
-     注：端口号须保证与客户端的配置的端口号保持一致
-     注：端口号尽量与别的中心的端口号不一样
+ * 修改start_personal_log.sh中的启动参数(端口号，中心名称)<br>
+ 
+     <font face="黑体">注</font> 端口号须保证与客户端的配置的端口号保持一致
+     <font face="黑体">注</font> 端口号尽量与别的中心的端口号不一样
 
  
  #### 脚本简介<br>
@@ -49,7 +50,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
 <br>
 
 ### 结果展示
-在完成客户端与服务端的配置后
+在完成客户端与服务端的配置后<br>
 
 启动： start_personal_log.sh 之后
 
