@@ -37,7 +37,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
  
  * 修改start_personal_log.sh中的启动参数(端口号，中心名称)<br>
    
-   1-- 端口号须保证与客户端的配置的端口号保持一致<br>
+    1-- 端口号须保证与客户端的配置的端口号保持一致<br>
    <br>
    2-- 端口号不可与其他中心的端口号一致
 
