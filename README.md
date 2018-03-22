@@ -50,7 +50,8 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
  
 在完成客户端,服务端的配置后<br>
 执行本中心的 start_personal_log.sh 脚本 <br>
-就会在logs目录下看到日志文件了
+
+就会在logs目录下生成本中心的日志文件
 
 
 
