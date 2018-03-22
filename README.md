@@ -33,7 +33,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
  
  * 复制/app/persoanl/bin目录到新建的本中心目录下
  
- * 在新建的本中心目录下新建logs目录（用以存放本中心日志）
+ * 在新建的本中心目录下新建logs目录（用来存储本中心日志）
  
  * 修改start_personal_log.sh中的启动参数(端口号，中心名称)<br>
    
@@ -46,14 +46,9 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
 -  stop_personal_log.sh(停止脚本)
 -  restart_personal_log.sh(服务端重启脚本)
 
-<br>
 
-### 结果展示
-在完成客户端与服务端的配置后<br>
 
-启动： start_personal_log.sh 之后
 
-会在logs目录下看到本中心的日志
 
 
 
