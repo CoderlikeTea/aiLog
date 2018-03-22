@@ -41,10 +41,14 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
    2-- 端口号尽量与别的中心的端口号不一样
 
  
- #### 脚本简介<br>
+  #### 脚本简介<br>
 -  start_personal_log.sh(服务端启动脚本)
 -  stop_personal_log.sh(停止脚本)
 -  restart_personal_log.sh(服务端重启脚本)
+
+  在完成客户端,服务端的配置后<br>
+  启动 start_personal_log.sh 
+  就会在logs目录下看到日志文件了
 
 
 
