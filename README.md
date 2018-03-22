@@ -31,7 +31,6 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
  * 登陆`20.26.27.27`(personal/123456)<br>
  * 在/app目录下创建本中心的目录(目录以中心的名称命名)
  
-  
  * 复制/app/persoanl/bin目录到新建的本中心目录下
  
  * 在新建的本中心目录下新建logs目录（用以存放本中心日志）
