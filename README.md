@@ -27,19 +27,26 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
 ```
 * 编译发布
 
-### 服务端(以个人订单为例)
- * 登陆`20.26.27.27`(personal/123456)<br>
- * 在/app目录下创建本中心的目录(目录以中心的名称命名)
+### 服务端部署
+ * 解压ailog-service-app.zip
+ * 将解压后的ailog-service-app上传至目标主机上
  
- * 复制/app/persoanl/bin目录到新建的本中心目录下
+ * 执行ailog-service-app 下的ailog_initialize.sh 脚本 
+   后面追加启动参数(用户名)
+ ```
+ sh  ailog_initialize.sh {用户名}
+ ```
  
- * 在新建的本中心目录下新建logs目录（用来存储本中心日志）
+ * 使用新加的用户名登陆目标主机(默认密码 123456)
  
- * 修改start_personal_log.sh中的启动参数(端口号，中心名称)<br>
-   
+ * 修改bin目录下的start_{用户名}_log.sh中的启动参数(端口号，中心名称)<br>
+  将4719修改成本中心的端口  将personal-center修改成本中心的名称
+ ```
+ ${LOGSTASH_APP_HOME}/bin/start_logstash2.sh 4719 personal-center
+ ```
    1-- 端口号须保证与客户端的配置的端口号保持一致<br>
    2-- 端口号不可与其他中心的端口号一致
-
+ 
  
   #### 脚本简介<br>
 -  start_personal_log.sh(服务端启动脚本)
