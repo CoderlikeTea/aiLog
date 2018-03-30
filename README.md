@@ -9,6 +9,9 @@
 
 <img src="https://github.com/CoderlikeTea/aiLog/blob/master/other/downzip.png" width=640 height=256 />
 
+2 本地解压aiLog-master.zip
+  
+
 ### 客户端配置
  1 打包<br>
  
@@ -39,14 +42,14 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendParaSVImpl
 4 编译发布
 
 ### 服务端部署
- 1 在github获取aiLog.zip
  
- 2 将aiLog.zip上传至目标主机上app目录下
+ 
+ 1 将aiLog.zip上传至目标主机上app目录下
  ```
  xz aiLog.zip
  ```
  
- 3 执行 aiLog 下的 ailog_init.sh 脚本 (服务端初始化脚本)
+ 2 执行 aiLog 下的 ailog_init.sh 脚本 (服务端初始化脚本)
  sh  ailog_initialize.sh [username] [passwd] [center-code] [port] <br>
  [username]   设置用户名 <br>
  [passwd]     设置密码 <br>
@@ -59,7 +62,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendParaSVImpl
  新建一个用户（personal） 密码为：123456 服务端所属中心：个人订单  服务端端口号：4719
  ```
  
- 4 使用新加的用户名登陆目标主机
+ 3 使用新加的用户名登陆目标主机
  
 
  
