@@ -10,7 +10,8 @@
  2 配置log4j.properties<br>
    在项目的log4j.properties文件中添加以下配置
  ```
- ##使用soctet连接发送日志信息
+##server
+##使用soctet连接发送日志信息
 log4j.appender.server=com.ai.appender.AISocketAppender
 ##服务端对应的端口（原则上 中心与端口一一映射）
 log4j.appender.server.Port=4719
@@ -20,7 +21,7 @@ log4j.appender.server.ReconnectionDelay=10000
 ##配置中心应用名
 log4j.appender.server.application=personal-csf
 ##属性扩展类
-log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
+log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendParaSVImpl
 ```
 ```
 #配置输出的地方（这个名字必须与新增的Appender名称一致）
