@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "The use of bin/plugin is deprecated and will be removed in a feature release. Please use bin/logstash-plugin."
+
+unset CDPATH
+sh "$(cd `dirname $0`/..; pwd)/bin/logstash-plugin" "$@"
