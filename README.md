@@ -41,7 +41,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
  [username]   设置用户名 <br>
  [passwd]     设置密码 <br>
  [center-code] 设置服务端所属中心--在同一台主机上保证中心名称唯一<br>
- [port]  服务启动端口号--在同一台主机上保证端口号唯一<br>
+ [port]  设置服务端启动端口--在同一台主机上保证端口号唯一<br>
  
  例：
  ```
