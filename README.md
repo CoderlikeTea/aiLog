@@ -4,9 +4,14 @@
 <br>
 为提高工作效率,测试人员提出希望在同一台主机上获取日志
 
+### 前期准备
+1 获取aiLog-master.zip
+  ![Alt text](https://github.com/CoderlikeTea/aiLog/blob/master/other/downzip.png  "optional title")
+
 ### 客户端配置
  1 打包<br>
- 使用maven对aiLog进行打包，获取到ailog-1.0.jar
+ 
+   使用 maven 对 aiLog 进行打包，获取到ailog-1.0.jar
  
  2 项目部署ailog-1.0.jar<br>
  
