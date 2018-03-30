@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>AILog</groupId>
-    <artifactId>AILog</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>ailog</artifactId>
+    <version>1.0</version>
     <dependencies>
 
         <dependency>
