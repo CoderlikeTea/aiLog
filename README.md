@@ -7,7 +7,7 @@
 ### 前期准备
 1 获取aiLog-master.zip
 
-<img src="https://github.com/CoderlikeTea/aiLog/blob/master/other/downzip.png" width=256 height=256 />
+<img src="https://github.com/CoderlikeTea/aiLog/blob/master/other/downzip.png" width=512 height=256 />
 
 ### 客户端配置
  1 打包<br>
