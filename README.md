@@ -5,12 +5,12 @@
 为提高工作效率,测试人员提出希望在同一台主机上获取日志
 
 ### 客户端配置
- 1 打包
+ 1 打包<br>
  使用maven对aiLog进行打包，获取到ailog-1.0.jar
  
- 1 项目部署ailog-1.0.jar<br>
+ 2 项目部署ailog-1.0.jar<br>
  
- 2 配置log4j.properties<br>
+ 3 配置log4j.properties<br>
    在项目的log4j.properties文件中添加以下配置
  ```
 ##server
@@ -30,7 +30,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendParaSVImpl
 #配置输出的地方（这个名字必须与新增的Appender名称一致）
  log4j.rootLogger=debug,server
 ```
-3 编译发布
+4 编译发布
 
 ### 服务端部署
  1 在github获取aiLog.zip
