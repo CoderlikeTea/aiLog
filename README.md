@@ -6,6 +6,7 @@
 
 ### 客户端配置
  1 项目部署AILog-1.0-SNAPSHOT.jar<br>
+ 
  2 配置log4j.properties<br>
    在项目的log4j.properties文件中添加以下配置
  ```
@@ -29,25 +30,23 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
 
 ### 服务端部署
  1 在github获取aiLog.zip
+ 
  2 将aiLog.zip上传至目标主机上app目录下
-  使用
  ```
  xz aiLog.zip
  ```
  
  3 执行 aiLog 下的 ailog_init.sh 脚本 (服务端初始化脚本)
- sh  ailog_initialize.sh [username] [passwd] [center-code] [port]
- [username]   设置用户名 
- [passwd]     设置密码
- [center-code] 设置服务端所属中心--在同一台主机上保证中心名称唯一
- [port]  服务启动端口号--在同一台主机上保证端口号唯一
+ sh  ailog_initialize.sh [username] [passwd] [center-code] [port] <br>
+ [username]   设置用户名 <br>
+ [passwd]     设置密码 <br>
+ [center-code] 设置服务端所属中心--在同一台主机上保证中心名称唯一<br>
+ [port]  服务启动端口号--在同一台主机上保证端口号唯一<br>
  
  例：
-   
  ```
  sh  ailog_initialize.sh personal 123456 personal-center 4719
  新建一个用户（personal） 密码为：123456 服务端所属中心：个人订单  服务端端口号：4719
- 
  ```
  
  4 使用新加的用户名登陆目标主机
