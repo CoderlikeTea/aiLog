@@ -5,7 +5,10 @@
 为提高工作效率,测试人员提出希望在同一台主机上获取日志
 
 ### 客户端配置
- 1 项目部署AILog-1.0-SNAPSHOT.jar<br>
+ 1 打包
+ 使用maven对aiLog进行打包，获取到ailog-1.0.jar
+ 
+ 1 项目部署ailog-1.0.jar<br>
  
  2 配置log4j.properties<br>
    在项目的log4j.properties文件中添加以下配置
