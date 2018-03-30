@@ -5,8 +5,8 @@
 为提高工作效率,测试人员提出希望在同一台主机上获取日志
 
 ### 客户端配置
- * 项目部署AILog-1.0-SNAPSHOT.jar<br>
- * 配置log4j.properties<br>
+ 1 项目部署AILog-1.0-SNAPSHOT.jar<br>
+ 2 配置log4j.properties<br>
    在项目的log4j.properties文件中添加以下配置
  ```
  ##使用soctet连接发送日志信息
@@ -25,27 +25,34 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
 #配置输出的地方（这个名字必须与新增的Appender名称一致）
  log4j.rootLogger=debug,server
 ```
-* 编译发布
+3 编译发布
 
 ### 服务端部署
- * 解压github上下载的 ailog-service-app.zip
- * 将解压后的 ailog-service-app 上传至目标主机上
- 
- * 执行 ailog-service-app 下的 ailog_initialize.sh 脚本 
-   后面追加启动参数(用户名)
+ 1 在github获取aiLog.zip
+ 2 将aiLog.zip上传至目标主机上app目录下
+  使用
  ```
- sh  ailog_initialize.sh {用户名}
+ xz aiLog.zip
  ```
  
- * 使用新加的用户名登陆目标主机(默认密码 123456)
+ 3 执行 aiLog 下的 ailog_init.sh 脚本 (服务端初始化脚本)
+ sh  ailog_initialize.sh [username] [passwd] [center-code] [port]
+ [username]   设置用户名 
+ [passwd]     设置密码
+ [center-code] 设置服务端所属中心--在同一台主机上保证中心名称唯一
+ [port]  服务启动端口号--在同一台主机上保证端口号唯一
  
- * 修改bin目录下的 start_{用户名}_log.sh 中的启动参数(端口号，中心名称)<br>
-  将 4719 修改成本中心的端口  将 personal-center 修改成本中心的名称
+ 例：
+   
  ```
- ${LOGSTASH_APP_HOME}/bin/start_logstash2.sh 4719 personal-center
+ sh  ailog_initialize.sh personal 123456 personal-center 4719
+ 新建一个用户（personal） 密码为：123456 服务端所属中心：个人订单  服务端端口号：4719
+ 
  ```
-   1-- 端口号须保证与客户端的配置的端口号保持一致<br>
-   2-- 端口号不可与其他中心的端口号一致
+ 
+ 4 使用新加的用户名登陆目标主机
+ 
+
  
  
   #### 脚本简介<br>
@@ -56,7 +63,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.AppFrameExtendPara
 ### 结果展示
  
 在完成客户端,服务端的配置后<br>
-执行本中心的 start_personal_log.sh 脚本 <br>
+执行本中心的 start_{用户名}_log.sh 脚本 <br>
 
 就可以在本中心的logs目录下看到日志文件了
 
