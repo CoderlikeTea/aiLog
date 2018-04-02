@@ -16,10 +16,11 @@ if [ $LOG_USER_COUNT -ne 1 ]
  then
  useradd  -d /app/log -m log
  echo "log2018" | passwd log --stdin
-cp -arf log/app ../log/
-cp -arf log/sbin ../log/
-cp -arf log/software ../log/
- else
+ cp -arf log/app ../../app/log
+ cp -arf log/sbin ../../app/log
+ cp -arf log/software ../../app/log
+ echo ' log用户已初始化成功'
+else
  echo ' log is exits '
 fi
 
@@ -27,15 +28,15 @@ if [ $USER_COUNT -ne 1 ]
  then
  useradd  -d /app/$1 -m $1
  echo $2 | passwd $1 --stdin
- rm -r ../$1/bin
- cp -arf personal/bin/ ../$1/
- mkdir ../$1/logs
+ cp -arf personal/bin/ ../../app/$1/
+ mkdir ../../app/$1/logs
 
-rename 'personal' $1 ../$1/bin/*.sh
-sed -i "s/personal-center/$3/g" `grep personal-center -rl ../$1/bin/*.sh`
-sed -i "s/personal/$1/g" `grep personal -rl ../$1/bin/*.sh`
-sed -i "s/4719/$4/g" `grep 4719 -rl ../$1/bin/*.sh`
-chmod +x ../$1/bin/*.sh
- else
+ rename 'personal' $1 ../../app/$1/bin/*.sh
+ sed -i "s/personal-center/$3/g" `grep personal-center -rl ../../app/$1/bin/*.sh`
+ sed -i "s/personal/$1/g" `grep personal -rl ../../app/$1/bin/*.sh`
+ sed -i "s/4719/$4/g" `grep 4719 -rl ../../app/$1/bin/*.sh`
+ chmod +x ../../app/$1/bin/*.sh
+ echo ' '$1'用户已初始化成功 '
+else
  echo ' '$1' is exits '
 fi
