@@ -49,7 +49,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendParaSVImpl
  xz aiLog.zip
  ```
  
- 2 执行 aiLog 下的 ailog_init.sh 脚本 (服务端初始化脚本)
+ 2 执行 aiLog 下的 init.sh 脚本 (服务端初始化脚本)
  sh  ailog_initialize.sh [username] [passwd] [center-code] [port] <br>
  [username]   设置用户名 <br>
  [passwd]     设置密码 <br>
@@ -58,7 +58,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendParaSVImpl
  
  例：
  ```
- sh  ailog_initialize.sh personal 123456 personal-center 4719
+ sh  init.sh personal 123456 personal-center 4719
  新建一个用户（personal） 密码为：123456 服务端所属中心：个人订单  服务端端口号：4719
  ```
  
