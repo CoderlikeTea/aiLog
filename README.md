@@ -46,7 +46,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendParaSVImpl
  
  1 将aiLog.zip上传至目标主机上app目录下
  ```
- xz aiLog.zip
+ unzip aiLog.zip
  ```
  
  2 执行 aiLog 下的 init.sh 脚本 (服务端初始化脚本)
