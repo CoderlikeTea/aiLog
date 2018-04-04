@@ -1,4 +1,3 @@
-#!/bin/sh
 
 # 作者:俞琪辉
 # 邮箱:yuqh3@asiainfo.com
@@ -14,11 +13,13 @@ LOG_USER_COUNT=`cat /etc/passwd | grep '^log:' -c`
 
 if [ $LOG_USER_COUNT -ne 1 ]
  then
- useradd  -d /app/log -m log
+ useradd  -d /app/log  -m log -g root
  echo "log2018" | passwd log --stdin
- cp -arf log/app ../../app/log
- cp -arf log/sbin ../../app/log
- cp -arf log/software ../../app/log
+ cp -arf log/app      /app/log
+ cp -arf log/sbin     /app/log
+ cp -arf log/software /app/log
+ chmod -R 750 /app/log
+chown log  -R /app/log
  echo ' log用户已初始化成功'
 else
  echo ' log is exits '
@@ -26,16 +27,17 @@ fi
 
 if [ $USER_COUNT -ne 1 ]
  then
- useradd  -d /app/$1 -m $1
+ useradd  -d /app/$1  -m $1 -g root
  echo $2 | passwd $1 --stdin
- cp -arf personal/bin/ ../../app/$1/
+ cp -arf personal/bin /app/$1/
  mkdir ../../app/$1/logs
 
- rename 'personal' $1 ../../app/$1/bin/*.sh
- sed -i "s/personal-center/$3/g" `grep personal-center -rl ../../app/$1/bin/*.sh`
- sed -i "s/personal/$1/g" `grep personal -rl ../../app/$1/bin/*.sh`
- sed -i "s/4719/$4/g" `grep 4719 -rl ../../app/$1/bin/*.sh`
- chmod +x ../../app/$1/bin/*.sh
+ rename 'personal' $1 /app/$1/bin/*.sh
+ sed -i "s/personal-center/$3/g" `grep personal-center -rl /app/$1/bin/*.sh`
+ sed -i "s/personal/$1/g" `grep personal -rl /app/$1/bin/*.sh`
+ sed -i "s/4719/$4/g" `grep 4719 -rl /app/$1/bin/*.sh`
+ chown $1 -R /app/$1/
+ chmod 700 /app/$1/bin/*.sh
  echo ' '$1'用户已初始化成功 '
 else
  echo ' '$1' is exits '
