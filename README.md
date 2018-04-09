@@ -5,21 +5,21 @@
 为提高工作效率,测试人员提出希望在同一台主机上获取日志
 
 ### 前期准备
-1 获取aiLog-master.zip
+1: 获取aiLog-master.zip
 
 <img src="https://github.com/CoderlikeTea/aiLog/blob/master/other/downzip.png" width=640 height=256 />
 
-2 本地解压aiLog-master.zip
+2: 本地解压aiLog-master.zip
   
 
 ### 客户端配置
- 1 打包<br>
+ 1: 打包<br>
  
    使用 maven 对 aiLog 进行打包，获取到ailog-1.0.jar
  
- 2 项目部署ailog-1.0.jar<br>
+ 2: 项目部署ailog-1.0.jar<br>
  
- 3 配置log4j.properties<br>
+ 3: 配置log4j.properties<br>
    在项目的log4j.properties文件中添加以下配置
  ```
 ##server
@@ -39,17 +39,17 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendParaSVImpl
 #配置输出的地方（这个名字必须与新增的Appender名称一致）
  log4j.rootLogger=debug,server
 ```
-4 编译发布
+4: 编译发布
 
 ### 服务端部署
  
  
- 1 将aiLog.zip上传至目标主机上app目录下
+ 1: 将aiLog.zip上传至目标主机上app目录下
  ```
  unzip aiLog.zip
  ```
  
- 2 执行 aiLog 下的 init.sh 脚本 (服务端初始化脚本)
+ 2: 执行 aiLog 下的 init.sh 脚本 (服务端初始化脚本)
  sh  ailog_initialize.sh [username] [passwd] [center-code] [port] <br>
  [username]   设置用户名 <br>
  [passwd]     设置密码 <br>
@@ -62,7 +62,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendParaSVImpl
  新建一个用户（personal） 密码为：123456 服务端所属中心：个人订单  服务端端口号：4719
  ```
  
- 3 使用新加的用户名登陆目标主机
+ 3: 使用新加的用户名登陆目标主机
  
 
  
@@ -73,7 +73,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendParaSVImpl
 -  stop_personal_log.sh(停止脚本)
 -  restart_personal_log.sh(服务端重启脚本)
  
-### 结果展示
+### 日志展示
  
 在完成客户端,服务端的配置后<br>
 执行本中心的 start_{用户名}_log.sh 脚本 <br>
