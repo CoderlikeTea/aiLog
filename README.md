@@ -33,7 +33,7 @@ log4j.appender.server.ReconnectionDelay=10000
 ##配置中心应用名
 log4j.appender.server.application=personal-csf
 ##属性扩展类
-log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendParaSVImpl
+log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendPara
 ```
 ```
 #配置输出的地方（这个名字必须与新增的Appender名称一致）
