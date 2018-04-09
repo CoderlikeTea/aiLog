@@ -3,7 +3,7 @@ package com.ai.extpara.impl;
 import com.ai.appframe2.common.BaseSessionManager;
 import com.ai.extpara.interfaces.IExtendParaSV;
 
-public class AppFrameExtendParaSVImpl implements IExtendParaSV {
+public class AppFrameExtendPara implements IExtendParaSV {
     public String opId;
     public String opCode;
     public String processName;
