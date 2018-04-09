@@ -9,13 +9,12 @@
 
 <img src="https://github.com/CoderlikeTea/aiLog/blob/master/other/downzip.png" width=640 height=256 />
 
-2- 本地解压aiLog-master.zip
+
   
 
 ### 客户端配置
- 1- 打包<br>
- 
-   使用 maven 对 aiLog 进行打包，获取到ailog-1.0.jar
+ 1- 获取jar包<br>
+   获取other目录下的ailog-1.0.jar
  
  2- 项目部署ailog-1.0.jar<br>
  
@@ -50,7 +49,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendParaSVImpl
  ```
  
 2- 执行 aiLog 下的 init.sh 脚本 (服务端初始化脚本)
- sh  ailog_initialize.sh [username] [passwd] [center-code] [port] <br>
+ sh  init.sh [username] [passwd] [center-code] [port] <br>
  [username]   设置用户名 <br>
  [passwd]     设置密码 <br>
  [center-code] 设置服务端所属中心--在同一台主机上保证中心名称唯一<br>
