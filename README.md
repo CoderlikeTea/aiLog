@@ -9,12 +9,13 @@
 
 <img src="https://github.com/CoderlikeTea/aiLog/blob/master/other/downzip.png" width=640 height=256 />
 
+2- 本地解压aiLog-master.zip
+
 
   
 
 ### 客户端配置
- 1- 获取jar包<br>
-   获取other目录下的ailog-1.0.jar
+ 1- 获取other目录下的ailog-1.0.jar
  
  2- 项目部署ailog-1.0.jar<br>
  
