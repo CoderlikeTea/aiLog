@@ -58,12 +58,11 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendPara
  sh  init.sh
  ```
  
-3- 使用新加的用户名登陆目标主机
+3- 使用新增的用户登陆目标主机
  
 
  
- 
-  #### 脚本简介(bin目录下)<br>
+#### 脚本简介(bin目录下)<br>
   
 -  start_personal_log.sh(服务端启动脚本)
 -  stop_personal_log.sh(停止脚本)
