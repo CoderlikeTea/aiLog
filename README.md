@@ -44,9 +44,11 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendPara
 ### 服务端部署
  
  
-1- 将aiLog.zip上传至目标主机上app目录下
+1- 将aiLog-master.zip上传至目标主机
+2-执行以下脚本,解压aiLog-master.zip
+
  ```
- unzip aiLog.zip
+ unzip aiLog-master.zip
  ```
  
 2- 执行 aiLog 下的 init.sh 脚本 (服务端初始化脚本)
