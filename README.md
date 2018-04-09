@@ -44,24 +44,18 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendPara
 ### 服务端部署
  
  
-1- 将aiLog-master.zip上传至目标主机
+1- 将aiLog-master.zip上传至目标主机<br>
+
 2-执行以下脚本,解压aiLog-master.zip
 
- ```
+```
  unzip aiLog-master.zip
  ```
  
-2- 执行 aiLog 下的 init.sh 脚本 (服务端初始化脚本)
- sh  init.sh [username] [passwd] [center-code] [port] <br>
- [username]   设置用户名 <br>
- [passwd]     设置密码 <br>
- [center-code] 设置服务端所属中心--在同一台主机上保证中心名称唯一<br>
- [port]  设置服务端启动端口--在同一台主机上保证端口号唯一<br>
+2- 使用root用户执行 aiLog-master 下的 init.sh 脚本 (服务端初始化脚本)
  
- 例：
  ```
- sh  init.sh personal 123456 personal-center 4719
- 新建一个用户（personal） 密码为：123456 服务端所属中心：个人订单  服务端端口号：4719
+ sh  init.sh
  ```
  
 3- 使用新加的用户名登陆目标主机
