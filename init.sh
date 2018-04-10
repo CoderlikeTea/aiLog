@@ -19,7 +19,7 @@ if [ $LOG_USER_COUNT -ne 1 ]
  cp -arf log/software /app/log
  chmod -R 750 /app/log
  chown log  -R /app/log
- chgrp log /app/log
+ chgrp log  -R /app/log
  echo ' log用户已初始化成功'
 else
  echo ' log is exits '
@@ -49,7 +49,7 @@ if [ $USER_COUNT -ne 1 ]
  read port;
  sed -i "s/4719/$port/g" `grep 4719 -rl /app/$username/bin/*.sh`
  chown $username -R /app/$username/
- chgrp log  /app/$username/
+ chgrp log -R /app/$username/
  chmod 700 /app/$username/bin/*.sh
  echo ' '$username'用户已初始化成功 '
 else
