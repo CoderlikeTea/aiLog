@@ -1,16 +1,19 @@
 package com.ai.extpara.impl;
 
 import com.ai.appframe2.common.BaseSessionManager;
-import com.ai.extpara.interfaces.IExtendParaSV;
+import com.ai.extpara.interfaces.ExtendPara;
 
-public class AppFrameExtendPara implements IExtendParaSV {
+import java.util.HashMap;
+
+
+public class AppFrameExtendPara implements ExtendPara {
     public String opId;
     public String opCode;
     public String processName;
 
     /**
      基于AppFrame 获得当前业务对应的操作员编号
-      */
+     */
     public String getOpId() {
         return this.opId = BaseSessionManager.__getUserWithOutLog() == null ? "" : String.valueOf(BaseSessionManager.__getUserWithOutLog().getID());
     }
@@ -34,37 +37,52 @@ public class AppFrameExtendPara implements IExtendParaSV {
 
         subAiLogFlag = aiLogFlag.substring(aiLogFlag.length()-3,aiLogFlag.length());
 
+
         if(aiLogFlag.indexOf("cache") != -1){
             subAiLogFlag= aiLogFlag.substring(aiLogFlag.length()-5,aiLogFlag.length());;
 
         }
 
         if("exe".equals(subAiLogFlag)) {
-            //TF和TASK得到的是task_code,对于bp而言获取的当前业务的流水号
+            //TF和TASK得到的是task_code,对于bp而言获取当前业务的流水号
             this.processName = System.getProperty("taskCode") == null ? "" : String.valueOf(System.getProperty("taskCode"));
 
             return this.processName;
-            }
+        }
         if("csf".equals(subAiLogFlag)){
             //获取csf对应的集群名称
             this.processName = System.getProperty("appframe.server.name") == null ? "" : String.valueOf(System.getProperty("appframe.server.name"));
 
             return this.processName;
-            }
+        }
         if("msg".equals(subAiLogFlag)){
             //获取消息对应的集群名称
             this.processName = System.getProperty("appframe.server.name") == null ? "" : String.valueOf(System.getProperty("appframe.server.name"));
 
             return this.processName;
-            }
+        }
         if("cache".equals(subAiLogFlag)){
             //获取缓存对应的集群名称
             this.processName = System.getProperty("appframe.server.name") == null ? "" : String.valueOf(System.getProperty("appframe.server.name"));
 
             return this.processName;
-            }
+        }
 
         return this.processName;
 
     }
+
+
+
+
+    public HashMap getExtPara() throws Exception {
+        HashMap map = new HashMap();
+
+        map.put("opId",getOpId());
+        map.put("opCode",getOpCode());
+        map.put("processName",getProcessName());
+
+        return map;
+    }
+
 }

@@ -3,13 +3,13 @@ package com.ai.appender;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.InterruptedIOException;
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
-;
-import com.ai.extpara.interfaces.IExtendParaSV;
 import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.MDC;
 import org.apache.log4j.helpers.LogLog;
@@ -19,78 +19,11 @@ import org.apache.log4j.spi.LoggingEvent;
 
 
 
-/**
- Sends {@link LoggingEvent} objects to a remote a log server,
- usually a {@link SocketNode}.
-
- <p>The SocketAppender has the following properties:
-
- <ul>
-
- <p><li>If sent to a {@link SocketNode}, remote logging is
- non-intrusive as far as the log event is concerned. In other
- words, the event will be logged with the same time stamp, {@link
-org.apache.log4j.NDC}, location info as if it were logged locally by
- the client.
-
- <p><li>SocketAppenders do not use a layout. They ship a
- serialized {@link LoggingEvent} object to the server side.
-
- <p><li>Remote logging uses the TCP protocol. Consequently, if
- the server is reachable, then log events will eventually arrive
- at the server.
-
- <p><li>If the remote server is down, the logging requests are
- simply dropped. However, if and when the server comes back up,
- then event transmission is resumed transparently. This
- transparent reconneciton is performed by a <em>connector</em>
- thread which periodically attempts to connect to the server.
-
- <p><li>Logging events are automatically <em>buffered</em> by the
- native TCP implementation. This means that if the link to server
- is slow but still faster than the rate of (log) event production
- by the client, the client will not be affected by the slow
- network connection. However, if the network connection is slower
- then the rate of event production, then the client can only
- progress at the network rate. In particular, if the network link
- to the the server is down, the client will be blocked.
-
- <p>On the other hand, if the network link is up, but the server
- is down, the client will not be blocked when making log requests
- but the log events will be lost due to server unavailability.
-
- <p><li>Even if a <code>SocketAppender</code> is no longer
- attached to any category, it will not be garbage collected in
- the presence of a connector thread. A connector thread exists
- only if the connection to the server is down. To avoid this
- garbage collection problem, you should {@link #close} the the
- <code>SocketAppender</code> explicitly. See also next item.
-
- <p>Long lived applications which create/destroy many
- <code>SocketAppender</code> instances should be aware of this
- garbage collection problem. Most other applications can safely
- ignore it.
-
- <p><li>If the JVM hosting the <code>SocketAppender</code> exits
- before the <code>SocketAppender</code> is closed either
- explicitly or subsequent to garbage collection, then there might
- be untransmitted data in the pipe which might be lost. This is a
- common problem on Windows based systems.
-
- <p>To avoid lost data, it is usually sufficient to {@link
-#close} the <code>SocketAppender</code> either explicitly or by
- calling the {@link org.apache.log4j.LogManager#shutdown} method
- before exiting the application.
 
 
- </ul>
+public class ReformSocketAppender extends AppenderSkeleton {
 
- @author  Ceki G&uuml;lc&uuml;
- @since 0.8.4 */
-
-public class AISocketAppender extends AppenderSkeleton {
-
-    String ExtendPara;
+    String extendPara;
 
     /**
      The default port number of remote logging server (4560).
@@ -131,13 +64,13 @@ public class AISocketAppender extends AppenderSkeleton {
     private boolean advertiseViaMulticastDNS;
     private ZeroConfSupport zeroConf;
 
-    public AISocketAppender() {
+    public ReformSocketAppender() {
     }
 
     /**
      Connects to remote server at <code>address</code> and <code>port</code>.
      */
-    public AISocketAppender(InetAddress address, int port) {
+    public ReformSocketAppender(InetAddress address, int port) {
         this.address = address;
         this.remoteHost = address.getHostName();
         this.port = port;
@@ -147,7 +80,7 @@ public class AISocketAppender extends AppenderSkeleton {
     /**
      Connects to remote server at <code>host</code> and <code>port</code>.
      */
-    public AISocketAppender(String host, int port) {
+    public ReformSocketAppender(String host, int port) {
         this.port = port;
         this.address = getAddressByName(host);
         this.remoteHost = host;
@@ -243,11 +176,20 @@ public class AISocketAppender extends AppenderSkeleton {
 
         if(oos != null) {
             try {
-                if(this.ExtendPara!=null){
+                if(this.extendPara != null){
                     //设置应用名
                     System.setProperty("aiLogFlag",application);
-                    getFields(ExtendPara);
-
+                    Class clazz = Class.forName(extendPara);
+                    Object o = clazz.newInstance();
+                    Method method = clazz.getMethod("getExtPara");
+                    HashMap map = (HashMap) method.invoke(o);
+                    Iterator it = map.entrySet().iterator();
+                    while (it.hasNext()) {
+                        Map.Entry entry = (Map.Entry) it.next();
+                        Object key = entry.getKey();
+                        Object value = entry.getValue();
+                        MDC.put(key.toString(),value);
+                    }
                 }
 
                 if(locationInfo) {
@@ -337,7 +279,6 @@ public class AISocketAppender extends AppenderSkeleton {
 
     /**
      * The <b>RemoteHost</b> option takes a string value which should be
-     * the host name of the server where a {@link SocketNode} is
      * running.
      * */
     public void setRemoteHost(String host) {
@@ -421,6 +362,14 @@ public class AISocketAppender extends AppenderSkeleton {
         return reconnectionDelay;
     }
 
+    public String getExtendPara() {
+        return extendPara;
+    }
+
+    public void setExtendPara(String extendPara) {
+        this.extendPara = extendPara;
+    }
+
     /**
      The Connector will reconnect when the server becomes available
      again.  It does this by attempting to open a new connection every
@@ -476,61 +425,7 @@ public class AISocketAppender extends AppenderSkeleton {
          */
     }
 
-    public String getExtendPara() {
-        return ExtendPara;
-    }
-
-    public void setExtendPara(String extendPara) {
-        ExtendPara = extendPara;
-    }
-
-    /**
-     将字符串的首字母变成大写
-     */
-    public String toUpperCaseFirstOne(String s){
-        if(Character.isUpperCase(s.charAt(0)))
-            return s;
-        else
-            return (new StringBuilder()).append(Character.toUpperCase(s.charAt(0))).append(s.substring(1)).toString();
-    }
-
-    /**
-     通过反射获取配置类(log4j.properties中的log4j.appender.server.ExtendPara节点)的属性
-     */
-    public void getFields(String string) throws Exception{
-        Class clazz = Class.forName(string);
-        Object o = clazz.newInstance();
-        Field[] fields = clazz.getDeclaredFields();
-        putValueToMDC(fields,o,clazz);
-        if(clazz.getSuperclass().getName() != "java.lang.Object"){
-            Class<?> superClazz = Class.forName(clazz.getSuperclass().getName());
-            Object o2 = superClazz.newInstance();
-            Field[] supFields = superClazz.getDeclaredFields();
-            putValueToMDC(supFields,o2,superClazz);
-        }
-    }
-
-    /**
-     通过反射获取属性的值，并以（key，value）的形式存储于MDC中
-     */
-    public void putValueToMDC(Field[] fields,Object object,Class clazz) throws Exception{
-        if(object instanceof IExtendParaSV){
-            {
-                for (Field field : fields) {
-                    String f = field.getName();
-
-                    String s = toUpperCaseFirstOne(f);
-                    Method method = clazz.getMethod("get" + s);
-                    Object o1 = method.invoke(object);
-                    MDC.put(f,o1.toString());
-
-
-                }
-            }
-
-        }else {
-            throw new Exception(clazz.getName()+"未实现IExtendParaSV接口");
-        }
-    }
 }
+
+
 
