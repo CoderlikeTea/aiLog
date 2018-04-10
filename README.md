@@ -24,7 +24,7 @@
  ```
 ##server
 ##使用soctet连接发送日志信息
-log4j.appender.server=com.ai.appender.AISocketAppender
+log4j.appender.server=com.ai.appender.ReformSocketAppender
 ##服务端对应的端口（原则上 中心与端口一一映射）
 log4j.appender.server.Port=4719
 ##服务端主机IP
