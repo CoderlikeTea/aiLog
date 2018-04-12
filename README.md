@@ -57,14 +57,15 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendPara
  ```
  
 3- 执行 aiLog-master 下的 init.sh 脚本 (服务端初始化脚本)
-
+```
  sh init.sh  [username]  [pwd]  [app-code]  [port]
  
    --[username]  新建用户的用户名<br>
    --[pwd]       新建用户的密码<br>
    --[app-code]  应用名称<br>
    --[port]      启动端口号,需要与log4j.properties中的port保持一致<br>
-   
+```
+
 例：
  ```
  在liunx主机上新建一个personal用户，并设置密码为123456 
