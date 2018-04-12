@@ -9,49 +9,45 @@
 # 修改作者:[修改请注明作者]
 LOG_USER_COUNT=`cat /etc/passwd | grep '^log:' -c`
 
-
 if [ $LOG_USER_COUNT -ne 1 ]
  then
  useradd  -d /app/log  -m log 
  echo "log2018" | passwd log --stdin
+ 
  cp -arf log/app      /app/log
  cp -arf log/sbin     /app/log
  cp -arf log/software /app/log
+ 
  chmod -R 750 /app/log
  chown log  -R /app/log
  chgrp log  -R /app/log
+ 
  echo ' log用户已初始化成功'
 else
  echo ' log is exits '
 fi
 
-echo -n "请输入用户名:" ---:
-read username;
-
-USER_COUNT=`cat /etc/passwd | grep '^'$username':' -c`
-
+USER_COUNT=`cat /etc/passwd | grep '^'$1':' -c`
 
 if [ $USER_COUNT -ne 1 ]
  then
- useradd  -d /app/$username  -m $username -g log
- echo -n "请输入密码:" ---:
- read pwd
- echo $pwd | passwd $username --stdin
- cp -arf personal/bin /app/$username/
- mkdir ../../app/$username/logs
+ useradd  -d /app/$1  -m $1 -g log
+ echo $2 | passwd $1 --stdin
 
- rename 'personal' $username /app/$username/bin/*.sh
- echo -n "请输入应用名称:" ---:
- read app;
- sed -i "s/personal-center/$app/g" `grep personal-center -rl /app/$username/bin/*.sh`
- sed -i "s/personal/$username/g" `grep personal -rl /app/$username/bin/*.sh`
- echo -n "请输入启动端口:" ---:
- read port;
- sed -i "s/4719/$port/g" `grep 4719 -rl /app/$username/bin/*.sh`
- chown $username -R /app/$username/
- chgrp log -R /app/$username/
- chmod 700 /app/$username/bin/*.sh
- echo ' '$username'用户已初始化成功 '
+ cp -arf personal/bin /app/$1/
+ mkdir ../../app/$1/logs
+
+ rename 'personal' $1 /app/$1/bin/*.sh
+
+ sed -i "s/personal-center/$3/g" `grep personal-center -rl /app/$1/bin/*.sh`
+ sed -i "s/personal/$1/g" `grep personal -rl /app/$1/bin/*.sh`
+ sed -i "s/4719/$4/g" `grep 4719 -rl /app/$1/bin/*.sh`
+
+ chown $1 -R /app/$1/
+ chgrp log -R /app/$1/
+ chmod 700 /app/$1/bin/*.sh
+ 
+ echo ' '$1'用户已初始化成功 '
 else
- echo ' '$username' 用户已存在 '
+ echo ' '$1' 用户已存在 '
 fi
