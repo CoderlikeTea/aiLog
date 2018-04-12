@@ -15,11 +15,9 @@
   
 
 ### 客户端配置
- 1- 获取other目录下的ailog-1.0.jar
+ 1- 将other目录下的ailog-1.0.jar 部署到项目的classpath中
  
- 2- 项目部署ailog-1.0.jar<br>
- 
- 3- 配置log4j.properties<br>
+ 2- 配置log4j.properties<br>
    在项目的log4j.properties文件中添加以下配置
  ```
 ##server
@@ -39,26 +37,26 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendPara
 #配置输出的地方（这个名字必须与新增的Appender名称一致）
  log4j.rootLogger=debug,server
 ```
-4- 编译发布
+3- 编译发布
 
 ### 服务端部署
  
  
-1- 将aiLog-master.zip上传至目标主机<br>
+1- 使用root用户将aiLog-master.zip上传至获取日志的主机上<br>
 
-2-执行以下脚本,解压aiLog-master.zip
+2- 执行以下脚本,解压aiLog-master.zip
 
 ```
  unzip aiLog-master.zip
  ```
  
-2- 使用root用户执行 aiLog-master 下的 init.sh 脚本 (服务端初始化脚本)
+3- 执行 aiLog-master 下的 init.sh 脚本 (服务端初始化脚本)
  
  ```
  sh  init.sh
  ```
  
-3- 使用新增的用户登陆目标主机
+4- 使用新增的用户登陆目标主机
  
 
  
