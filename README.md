@@ -1,14 +1,16 @@
 # AILog快速使用手册 
 
-  本工具仅服务于 使用log4j获取日志的工程 
 
 
-## 背景
+### 背景
 <br>
-为提高工作效率,测试人员提出希望在同一台主机上获取日志
+系统云化改造后，主机漂浮不定导致日志查看困难，需不断切换主机进行日志查看，故开发统一日志收集工具便于查看日志
+
+### 使用前提
+ 系统必须接入log4j
 
 
-### 前期准备
+### 使用准备
 1- 获取aiLog-master.zip
 
 <img src="https://github.com/CoderlikeTea/aiLog/blob/master/other/downzip.png" width=640 height=256 />
@@ -73,7 +75,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendPara
 ### 日志展示
  
 在完成客户端,服务端的配置后<br>
-执行本中心的 start_{用户名}_log.sh 脚本 <br>
+执行本中心的 bin/start_{用户名}_log.sh 脚本 <br>
 
 就可以在logs目录下看到日志文件了
 
