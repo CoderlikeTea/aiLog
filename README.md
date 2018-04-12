@@ -31,7 +31,7 @@
 log4j.appender.server=com.ai.appender.ReformSocketAppender
 ##服务端对应的端口（原则上 中心与端口一一映射）
 log4j.appender.server.Port=4719
-##服务端主机IP
+##服务端主机IP，获取日志的主机
 log4j.appender.server.RemoteHost=20.26.26.27
 log4j.appender.server.ReconnectionDelay=10000
 ##配置中心应用名
@@ -60,20 +60,20 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendPara
 
  sh init.sh  [username] [pwd] [app-code] [port]
  
-   [username]  liunx新建用户的用户名
-   [pwd]   新建用户的密码
-   [app-code] 应用名称
-   [port]   启动端口号
+   --[username]  liunx新建用户的用户名<br>
+   --[pwd]   新建用户的密码<br>
+   --[app-code] 应用名称<br>
+   --[port]   启动端口号,需要与log4j.properties中的port保持一致<br>
    
 例：
  ```
  在liunx主机上新建一个personal用户，并设置密码为123456 
  应用名称为：个人订单中心
- 服务启动端口为：4719 启动端口需处于空闲状态
+ 服务启动端口为：4719 启动端口需处于空闲状态且
  sh  init.sh personal 123456 personal-center 4719
  ```
  
-4- 使用新增的用户登陆目标主机
+4- 使用新增的用户登陆获取日志的主机
  
 
  
