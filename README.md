@@ -63,11 +63,10 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendPara
    --[username]  新建用户的用户名<br>
    --[pwd]       新建用户的密码<br>
    --[app-code]  应用名称<br>
-   --[port]      启动端口号,需要与log4j.properties中的port保持一致<br>
-```
+   --[port]      启动端口号,需要与log4j.properties中的port保持一致<br>
 
 例：
- ```
+
  在liunx主机上新建一个personal用户，并设置密码为123456 
  应用名称为：个人订单中心
  服务启动端口为：4719 启动端口需处于空闲状态且
