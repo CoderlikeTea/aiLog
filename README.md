@@ -74,19 +74,24 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendPara
  ```
  
 4- 使用新增的用户登陆获取日志的主机
+
+5- 执行bin目录下的 start_{用户名}_log.sh脚本
+
+```
+sh start_{用户名}_log.sh
+```
  
 
  
 #### 脚本简介(bin目录下)<br>
   
--  start_personal_log.sh(服务端启动脚本)
--  stop_personal_log.sh(停止脚本)
--  restart_personal_log.sh(服务端重启脚本)
+-  start_{username}_log.sh(服务端启动脚本)
+-  stop_{username}_log.sh(停止脚本)
+-  restart_{username}_log.sh(服务端重启脚本)
  
 ### 日志展示
  
 在完成客户端,服务端的配置后<br>
-执行本中心的 bin/start_{用户名}_log.sh 脚本 <br>
 
 就可以在logs目录下看到日志文件了
 
