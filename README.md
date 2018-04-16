@@ -27,8 +27,8 @@
  
  2- 配置log4j.properties<br>
    在项目的log4j.properties文件中添加以下配置,
-   客户端在配置时需修改{port},{RemoteHost},{application}的值
-   具体配置可参照下面注释中的内容
+   客户端在配置时需修改{port},{RemoteHost},{application}的值<br>
+   具体配置可参照下面注释中的内容进行修改
  
  ```
 ##server
