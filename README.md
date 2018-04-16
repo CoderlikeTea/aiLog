@@ -26,9 +26,10 @@
  1- 将dest目录下的ailog-1.0.jar 部署到项目的classpath中
  
  2- 配置log4j.properties<br>
-   在项目的log4j.properties文件中添加以下配置
-   
-   <font color=red>内容</font>
+   在项目的log4j.properties文件中添加以下配置,
+   客户端在配置时需修改{port},{RemoteHost},{application}的值
+   具体配置可参照下面注释中的内容
+ 
  ```
 ##server
 ##使用soctet连接发送日志信息
@@ -36,7 +37,7 @@ log4j.appender.server=com.ai.appender.ReformSocketAppender
 ##服务端对应的端口（原则上 中心与端口一一映射）
 log4j.appender.server.Port=4719
 ##服务端主机IP，获取日志的主机
-log4j.appender.server.RemoteHost=20.26.26.27
+log4j.appender.server.RemoteHost= 20.26.26.27
 log4j.appender.server.ReconnectionDelay=10000
 ##配置中心应用名
 log4j.appender.server.application=personal-csf
@@ -61,6 +62,7 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendPara
  ```
  
 3- 执行 aiLog-master 下的 init.sh 脚本 (服务端初始化脚本)
+
 ```
  sh init.sh  [username]  [pwd]  [app-code]  [port]
  
