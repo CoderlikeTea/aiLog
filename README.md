@@ -21,7 +21,7 @@
   
 
 ### 客户端配置
- 1- 将other目录下的ailog-1.0.jar 部署到项目的classpath中
+ 1- 将dest目录下的ailog-1.0.jar 部署到项目的classpath中
  
  2- 配置log4j.properties<br>
    在项目的log4j.properties文件中添加以下配置
