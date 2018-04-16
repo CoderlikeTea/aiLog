@@ -5,11 +5,11 @@
 ### 背景
 <br>
 系统云化改造后，主机漂浮不定导致日志查看困难，需不断切换主机进行日志查看，故开发统一日志收集工具便于查看日志
+*123
 
 ### 使用前提
  系统必须接入log4j
  
- <font color=#00ffff size=72>color=#00ffff</font>
 
 
 
@@ -63,10 +63,10 @@ log4j.appender.server.ExtendPara=com.ai.extpara.impl.AppFrameExtendPara
 ```
  sh init.sh  [username]  [pwd]  [app-code]  [port]
  
-   --[username]  新建用户的用户名<br>
-   --[pwd]       新建用户的密码<br>
-   --[app-code]  应用名称<br>
-   --[port]      启动端口号,需要与log4j.properties中的port保持一致<br>
+   --[username]  新建用户的用户名
+   --[pwd]       新建用户的密码
+   --[app-code]  应用名称
+   --[port]      启动端口号,需要与log4j.properties中的port保持一致
 
 例：
 
