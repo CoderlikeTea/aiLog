@@ -8,10 +8,16 @@
 # 修改时间:[修改请注明时间]
 # 修改作者:[修改请注明作者]
 LOG_USER_COUNT=`cat /etc/passwd | grep '^log:' -c`
+LOG_GROUP_COUNT=`cat /etc/group | grep '^log:' -c`
+
+if [ $LOG_GROUP_COUNT -ne 1 ]
+ then
+ groupadd log
+fi
 
 if [ $LOG_USER_COUNT -ne 1 ]
  then
- useradd  -d /app/log  -m log 
+ useradd  -d /app/log  -m log -g log
  echo "log2018" | passwd log --stdin
  
  cp -arf log/app      /app/log
@@ -34,7 +40,7 @@ if [ $USER_COUNT -ne 1 ]
  useradd  -d /app/$1  -m $1 -g log
  echo $2 | passwd $1 --stdin
 
- cp -arf personal/bin /app/$1/
+ cp -arf personal/bin /app/$1
  mkdir ../../app/$1/logs
 
  rename 'personal' $1 /app/$1/bin/*.sh
